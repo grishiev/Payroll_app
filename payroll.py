@@ -340,11 +340,11 @@ if you press '7' you will be presented with the gross weekly payroll;\n\
     ------------\n\
 to exit the menue, press '0'.\n")
 
-# def question():
-#     q = input("Would you like to continue? Print 'y' for yes or 'n' for no: ")
-#     if q == "n":
-#         cont = False
-
+def question():
+    q = input("Would you like to continue? Print 'y' for yes or 'n' for no: ")
+    if q == "n":
+        print("Have a nice rest of the day!")
+        exit()
 
 # Main function
 def main():
@@ -356,10 +356,11 @@ def main():
         # option = input()
         if(option == "1"):
             view_employees()
-            # question()
+            question()
+
         elif(option == "2"):
             add_employee(employee_details())
-    
+            question()
         elif(option == "3"):
             view_employees()
             # A loop to check the validity of the input of the employee number
@@ -372,24 +373,30 @@ def main():
                 else:
                     print_payslip(employees[employee_num - 1])
                     valid = False
+            question()
 
         elif(option == "4"):
             for e in employees:
                 print_payslip(e)
+            question()
     # payroll annual
         elif(option == "5"):
     
         #print("The annual payroll is:", payroll_gross())
             print(f"The annual payroll is: {payroll_gross()}")
+            question()
     # monthly
         elif(option == "6"):
             print(f"The monthly payroll is: {payroll_gross()/12}")
+            question()
     # weekly
         elif(option == "7"):
             print(f"The weekly payroll is: {payroll_gross()/52}")
+            question()
     
         elif(option == "h" or option == "H"):
             help()
+            question()
 
         elif(option == "0"):
             print("Have a nice rest of the day!")
