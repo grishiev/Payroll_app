@@ -61,6 +61,7 @@ def start_menu():
     print("Type -5- to Show annual payroll total")
     print("Type -6- to Show monthly payroll total")
     print("Type -7- to Show weekly payroll total")
+    print("Type -8- to Complete a survey about the service")
     print("Type -h- for Help")
     print("Type -0- to Exit")
 
@@ -338,12 +339,26 @@ if you press '6' you will be presented with the gross monthly payroll;\n\
     ------------\n\
 if you press '7' you will be presented with the gross weekly payroll;\n\
     ------------\n\
+if you press '8' you will be asked to complete a survey about the service;\n\
 to exit the menue, press '0'.\n")
 
 def question():
     q = input("Would you like to continue? Print 'y' for yes or 'n' for no: ")
     if q == "n":
         print("Have a nice rest of the day!")
+        exit()
+
+def survey():
+    q1 = int(input("On the scale from 1 to 10, how useful do you find this service? "))
+    q2 = int(input("On the scale from 1 to 10, how easy is it for you to use the service? "))
+    q3 = int(input("On the scale from 1 to 10, how how satisfied are you with the service? "))
+    score = (q1+q2+q3)/3
+    if score == 10:
+        print("Thank you! We are happy to serve you!")
+    elif score < 10 and score > 6:
+        print("Great to know you are like our service")
+    elif score <= 6:
+        print("We are sorry to hear you are not satisfied!")
         exit()
 
 # Main function
@@ -393,6 +408,10 @@ def main():
         elif(option == "7"):
             print(f"The weekly payroll is: {payroll_gross()/52}")
             question()
+
+    # survey
+        elif(option == "8"):
+            survey()
     
         elif(option == "h" or option == "H"):
             help()
