@@ -1,0 +1,1 @@
+creating new feature in the file - function that asks if to continue running the loop
